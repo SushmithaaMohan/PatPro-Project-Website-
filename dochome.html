@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Welcome Doc
+    </title>
+    <link rel="icon" href="Resources/img/snake-on-pole-doctor-symbol-vector.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+    <link href="Resources/css/dochome-style.css" type="text/css" rel="stylesheet">
+    <script>
+        function toggle() {
+            document.getElementById("t1").style.visibility = "visible";
+            document.getElementById("t2").style.visibility = "visible";
+            document.getElementById("b5").style.visibility = "visible";
+        }
+
+    </script>
+    <!--
+        
+-->
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li><a href="dochome.html">Home</a></li>
+                <li><a href="#section1">About</a></li>
+                <li><a href="Contactus.html">Contact Us</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                <li><a href="docprofile.php">Profile</a></li>
+            </ul>
+        </nav>
+
+        <div class="text">
+            <h1 class="tagline">
+                Much Easy...More Secure
+            </h1>
+            <div class="button">
+                <a class="b1" href="viewpatient.php">View Patient</a>
+                <a class="b2" onclick=toggle()>Add Patient</a>
+                <br>
+                <form method="post" action="dochome.php">
+                    <input class="text1" id="t1" type="text" placeholder="Email" name="email">
+                    <input class="text1" id="t2" type="text" placeholder="Disease" name="disease"><br>
+                    <input type="submit" class="text1 btn5" name="submit" id="b5" value="Add">
+                </form>
+            </div>
+        </div>
+    </header>
+    
+        
+    
+    <section class="sectionabout">
+        <div>
+            <h2 class="about"><a name="section1"></a>About us</h2>
+            <hr>
+
+        </div>
+    </section>
+      
+</body>
+
+</html>

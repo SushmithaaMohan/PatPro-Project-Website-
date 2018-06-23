@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login to Access</title>
+        <link rel="icon" href="Resources/img/login-icon.png">
+        <link rel="stylesheet" type="text/css" href="Resources/css/login-style.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+    </head>
+    <body>
+        <div class="outerbox">
+            <form method="post" action="logged.php">
+                <h1>Login</h1>
+               
+                <input class="username" name="email" type="text" placeholder="Email-id" title="Email-id" required>
+                    <br>
+                
+                <input class="username pass" placeholder="Password" name="pass" type="password" title="Password" maxlength="16" pattern=".{6,12}" required>
+                    
+                <br>
+                <label for="doctor"> Doctor</label>
+                <input type="radio" id="doctor" name="class" value="3" >
+                <label for="patient"> Patient</label>
+                <input type="radio" id="patient" name="class" value="4">
+                <br>
+                
+                <div class="remember">
+                <label for="remember">Remember me</label>
+                <input type="checkbox" value="1" >
+                </div>
+                    <br>
+                <input class="submit-btn" name="submit" type="submit" value="Get Access">
+                <a class="reg-btn" href="Register.html">New User</a>
+            </form>
+        </div>
+         <a class="backtohome" href="Index.html">Back to Home</a>
+        <?php
+$conn=mysql_connect("127.0.0.1","root");
+$db=mysql_select_db("reg2",$conn);
+
+ function login() 
+{ 
+ $email = $_POST['email'];
+ setcookie("email", "$email", time()+3600, "/","", 0); 
+ $password = $_POST['pass'];
+ $class = $_POST['class'];
+
+  
+     
+
+     if($class == '3')
+     {
+ $query = mysql_query("SELECT * FROM doctor_table WHERE email ='$_POST[email]' AND pass ='$_POST[pass]'"); 
+        
+        if($row = mysql_fetch_array($query) or die(mysql_error()))
+        { 
+    header("Location:dochome.html");
+        } 
+           
+     }
+         else
+     {
+        $query = mysql_query("SELECT * FROM patient_table WHERE email ='$_POST[email]' AND pass ='$_POST[pass]'"); 
+         
+         if($row = mysql_fetch_array($query) or die (wrong))
+        { 
+    header("Location:pathome.html");
+         } 
+         
+     }
+ }
+ 
+if(isset($_POST['submit'])) 
+{ 
+login(); 
+}
+mysql_close($conn);
+?>
+
+    </body>
+</html>
